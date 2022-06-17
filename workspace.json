@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "repro-lib": "packages/repro-lib",
+    "app": "packages/app"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "sourceRoot": "packages/repro-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/repro-lib",
+        "main": "packages/repro-lib/src/index.ts",
+        "tsConfig": "packages/repro-lib/tsconfig.lib.json",
+        "assets": ["packages/repro-lib/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs repro-lib {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    }
+  },
+  "tags": []
+}
