@@ -1,2 +1,5 @@
-export * from "./Repro";
-export * from "./Second";
+export class Repro {}
+
+export type Second = {
+    repro: Repro;
+};
